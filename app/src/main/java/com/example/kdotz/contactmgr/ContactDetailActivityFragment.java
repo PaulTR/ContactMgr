@@ -23,10 +23,11 @@ public class ContactDetailActivityFragment extends Fragment {
 
         Intent intent = getActivity().getIntent();
 
-        String item = intent.getStringExtra("item");
+        String name = intent.getStringExtra(ContactDetailActivity.EXTRA_NAME);
+        String number = intent.getExtras().getString(ContactDetailActivity.EXTRA_NUMBER);
 
         TextView contactDetailTextView = (TextView)rootView.findViewById(R.id.detail_text);
-        contactDetailTextView.setText(item);
+        contactDetailTextView.setText(number);
 
         return rootView;
     }

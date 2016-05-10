@@ -9,6 +9,9 @@ import android.view.View;
 
 public class ContactDetailActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NAME = "extra_name";
+    public static final String EXTRA_NUMBER = "extra_number";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

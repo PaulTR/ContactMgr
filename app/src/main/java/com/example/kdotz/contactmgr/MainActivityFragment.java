@@ -24,32 +24,32 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
-    private List<String> contactsList = null;
     private ListView contactsListView = null;
-    private List<String> numbersList = null;
-    private ListView numbersListView = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        contactsList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.contacts_list)));
 
         contactsListView = (ListView) rootView.findViewById(R.id.list_of_contacts);
 
-        ArrayAdapter<String> contactsArrayAdapter = new ArrayAdapter<String>(rootView.getContext(), android.R.layout.simple_list_item_1, contactsList);
+        ContactAdapter contactsAdapter = new ContactAdapter(getActivity());
 
-        contactsListView.setAdapter(contactsArrayAdapter);
+        contactsAdapter.add(new Contact("Mom", "1234567890"));
+        contactsAdapter.add(new Contact("Dad", "0987654321"));
+        contactsAdapter.add(new Contact("That sexy beast, Paul", "1800omnomnom"));
+        contactsListView.setAdapter(contactsAdapter);
 
        contactsListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                String item = (String) contactsListView.getItemAtPosition(position);
+                Contact item = (Contact) contactsListView.getAdapter().getItem(position);
 
                 Intent intent = new Intent(view.getContext(), ContactDetailActivity.class);
 
-                intent.putExtra("item", item);
+                intent.putExtra(ContactDetailActivity.EXTRA_NAME, item.getContactName());
+                intent.putExtra(ContactDetailActivity.EXTRA_NUMBER, item.getPhoneNumber());
 
                 startActivity(intent);
 
