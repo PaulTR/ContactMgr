@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="action_settings">Settings</string>
+    <string name="contact_detail">Contact Detail Here</string>
+    <string-array name="contacts_list">
+        <item>Mom</item>
+        <item>Dad</item>
+        <item>HI PAUL</item>
+    </string-array>
+    <string-array name="numbers_list">
+        <item>763.475.2578</item>
+        <item>612.804.0484</item>
+        <item>314.518.7290</item>
+    </string-array>
+    <string name="title_activity_contact_detail">Details</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
